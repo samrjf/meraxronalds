@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mera X — Vault Dashboard Demo</title>
+  <style>
+    :root {
+      --bg: #00152f;
+      --panel: #05234a;
+      --panel2: #062c61;
+      --line: #087cff;
+      --blue: #078cff;
+      --cyan: #19b9ff;
+      --white: #f5f8ff;
+      --muted: #d0def3;
+      --gold: #ffbd19;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--white);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+      background: radial-gradient(ellipse at 50% 30%, #07356d 0%, #001a3a 50%, #000e23 100%);
+    }
+
+    .page {
+      max-width: 1240px;
+      margin: auto;
+      padding: 18px 24px 34px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      min-height: 86px;
+      padding: 0 20px 14px;
+    }
+
+    .brand {
+      font-size: clamp(24px, 4vw, 42px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+    }
+
+    .brand span {
+      color: #20aaff;
+    }
+
+    .separator {
+      height: 58px;
+      width: 2px;
+      background: #087cff;
+      opacity: .8;
+    }
+
+    .heading {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: clamp(21px, 3vw, 36px);
+      font-weight: 750;
+    }
+
+    .shield {
+      width: 58px;
+      height: 66px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, #12aaff, #0053d8);
+      clip-path: polygon(50% 0, 100% 18%, 94% 72%, 50% 100%, 6% 72%, 0 18%);
+      font-size: 27px;
+    }
+
+    .header-actions {
+      margin-left: auto;
+      display: flex;
+      gap: 26px;
+      font-size: 34px;
+    }
+
+    .panel {
+      border: 1.5px solid var(--line);
+      border-radius: 25px;
+      margin-top: 18px;
+      background: linear-gradient(120deg, rgba(5, 36, 76, .97), rgba(2, 29, 65, .97));
+      box-shadow: 0 0 18px rgba(0, 105, 255, .18), inset 0 0 18px rgba(0, 105, 255, .08);
+    }
+
+    .balance {
+      min-height: 200px;
+      padding: 26px 30px;
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      background: linear-gradient(115deg, #073d87 0%, #052b67 65%, #0752d4 100%);
+      overflow: hidden;
+    }
+
+    .coin {
+      width: 124px;
+      height: 124px;
+      border-radius: 50%;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      font-size: 58px;
+      background: linear-gradient(145deg, #24c6ff, #0062f5);
+      box-shadow: 0 0 22px rgba(0, 157, 255, .35);
+    }
+
+    .balance-copy {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .eyebrow {
+      font-size: 20px;
+      color: #e2edff;
+    }
+
+    .amount {
+      font-size: clamp(38px, 6vw, 65px);
+      line-height: 1.12;
+      font-weight: 850;
+      letter-spacing: -2px;
+      margin: 5px 0;
+    }
+
+    .sub {
+      font-size: 21px;
+      color: #e0eaff;
+    }
+
+    .outline-btn,
+    .primary-btn {
+      border: 1px solid #12a2ff;
+      border-radius: 20px;
+      padding: 18px 24px;
+      color: white;
+      font-weight: 750;
+      font-size: 20px;
+      cursor: pointer;
+      background: linear-gradient(135deg, #075ce3, #0042b8);
+      white-space: nowrap;
+    }
+
+    .primary-btn {
+      background: linear-gradient(135deg, #12a9ff, #0063ed);
+    }
+
+    .section {
+      padding: 22px 24px;
+    }
+
+    .section-title {
+      font-size: 29px;
+      font-weight: 800;
+      margin: 0 0 20px;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr .9fr;
+    }
+
+    .summary-item {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      padding: 5px 20px;
+      border-right: 1px solid #087cff;
+      min-width: 0;
+    }
+
+    .summary-item:first-child {
+      padding-left: 0;
+    }
+
+    .summary-item:last-child {
+      border: 0;
+    }
+
+    .round-icon {
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      font-size: 34px;
+      color: white;
+      background: linear-gradient(145deg, #087bff, #003fae);
+      border: 1px solid #168cff;
+    }
+
+    .round-icon.gold {
+      color: var(--gold);
+      background: #493900;
+      border: 2px solid var(--gold);
+    }
+
+    .item-label {
+      color: #e5efff;
+      font-size: 19px;
+      line-height: 1.35;
+    }
+
+    .item-value {
+      font-size: clamp(25px, 3vw, 36px);
+      font-weight: 800;
+      line-height: 1.25;
+      margin: 4px 0;
+    }
+
+    .gold-text {
+      color: var(--gold);
+    }
+
+    .status {
+      display: inline-block;
+      border: 1px solid #12aaff;
+      color: white;
+      background: #064a9b;
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 18px;
+      margin-top: 6px;
+    }
+
+    .address {
+      font-size: 16px;
+      color: #e5efff;
+      margin: 12px 0 20px;
+      overflow-wrap: anywhere;
+    }
+
+    .withdraw-strip {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 18px 22px;
+      border: 1px solid #087cff;
+      border-radius: 22px;
+      background: linear-gradient(110deg, #052c66, #063d88);
+    }
+
+    .withdraw-strip .round-icon {
+      width: 106px;
+      height: 106px;
+      font-size: 42px;
+    }
+
+    .withdraw-copy {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .withdraw-copy strong {
+      display: block;
+      font-size: 34px;
+    }
+
+    .withdraw-copy span {
+      font-size: 20px;
+      color: #e3edff;
+    }
+
+    .details-row {
+      display: grid;
+      grid-template-columns: 1fr .7fr 1.6fr;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .detail-block {
+      padding: 4px 14px;
+      border-right: 1px solid #087cff;
+      min-width: 0;
+    }
+
+    .detail-block:first-child {
+      padding-left: 0;
+    }
+
+    .detail-block:last-child {
+      border: 0;
+    }
+
+    .detail-label {
+      font-size: 18px;
+      color: #e0ebff;
+    }
+
+    .detail-value {
+      font-size: clamp(21px, 2.5vw, 32px);
+      font-weight: 800;
+      margin-top: 4px;
+      overflow-wrap: anywhere;
+    }
+
+    .address-value {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .fee-box {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1fr;
+      align-items: center;
+      border: 1px solid #087cff;
+      border-radius: 18px;
+      padding: 14px 16px;
+      background: linear-gradient(110deg, #062c68, #06428e);
+      margin-top: 18px;
+      gap: 16px;
+    }
+
+    .fee-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .fee-item .round-icon {
+      width: 64px;
+      height: 64px;
+      font-size: 26px;
+    }
+
+    .fee-note {
+      color: #9be5ff;
+      font-size: 15px;
+      line-height: 1.45;
+      border-left: 1px solid #087cff;
+      padding-left: 18px;
+    }
+
+    .notice {
+      padding: 18px 22px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .info {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: #0baaff;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+    }
+
+    .demo-note {
+      color: #9edfff;
+      font-size: 13px;
+      text-align: center;
+      margin: 20px 0 0;
+    }
+
+    button:focus-visible {
+      outline: 3px solid white;
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        padding: 10px 12px 24px;
+      }
+
+      header {
+        padding: 0 5px 10px;
+        gap: 12px;
+        min-height: 70px;
+      }
+
+      .separator {
+        height: 42px;
+      }
+
+      .shield {
+        width: 42px;
+        height: 50px;
+        font-size: 21px;
+      }
+
+      .header-actions {
+        gap: 12px;
+        font-size: 25px;
+      }
+
+      .balance {
+        padding: 20px 16px;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .coin {
+        width: 74px;
+        height: 74px;
+        font-size: 36px;
+      }
+
+      .balance .outline-btn {
+        margin-left: 88px;
+        padding: 12px 16px;
+        font-size: 16px;
+      }
+
+      .eyebrow,
+      .sub {
+        font-size: 16px;
+      }
+
+      .section {
+        padding: 18px 14px;
+      }
+
+      .section-title {
+        font-size: 23px;
+      }
+
+      .summary-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .summary-item {
+        border-right: 0;
+        border-bottom: 1px solid #087cff;
+        padding: 0 0 14px;
+      }
+
+      .summary-item:last-child {
+        border-bottom: 0;
+      }
+
+      .round-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 27px;
+      }
+
+      .item-label {
+        font-size: 16px;
+      }
+
+      .item-value {
+        font-size: 27px;
+      }
+
+      .withdraw-strip {
+        gap: 14px;
+        padding: 14px;
+        flex-wrap: wrap;
+      }
+
+      .withdraw-strip .round-icon {
+        width: 68px;
+        height: 68px;
+        font-size: 30px;
+      }
+
+      .withdraw-copy strong {
+        font-size: 26px;
+      }
+
+      .withdraw-copy span {
+        font-size: 16px;
+      }
+
+      .withdraw-strip .primary-btn {
+        width: 100%;
+      }
+
+      .details-row {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .detail-block {
+        padding: 5px 8px;
+      }
+
+      .detail-block:first-child {
+        padding-left: 0;
+      }
+
+      .detail-block:nth-child(2) {
+        border: 0;
+      }
+
+      .detail-block:last-child {
+        grid-column: 1 / -1;
+        border-top: 1px solid #087cff;
+        padding: 12px 0 0;
+      }
+
+      .fee-box {
+        grid-template-columns: 1fr;
+      }
+
+      .fee-note {
+        border-left: 0;
+        border-top: 1px solid #087cff;
+        padding: 12px 0 0;
+      }
+
+      .notice {
+        font-size: 14px;
+        padding: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">Mera <span>X</span></div>
+      <div class="separator"></div>
+      <div class="heading">
+        <div class="shield">🔒</div>Vault Dashboard
+      </div>
+      <div class="header-actions" aria-hidden="true"><span>♧</span><span>☰</span></div>
+    </header>
+
+    <section class="panel balance">
+      <div class="coin">▱</div>
+      <div class="balance-copy">
+        <div class="eyebrow">Total Vault Balance</div>
+        <div class="amount">13,873 USDT</div>
+        <div class="sub">All funds in your vault</div>
+      </div>
+      <a href="index2.html">
+      <button class="outline-btn" type="button">▣ &nbsp; View Details ›</button></a>
+    </section>
+
+    <section class="panel section">
+      <h2 class="section-title">Withdrawal Summary</h2>
+      <div class="summary-grid">
+        <div class="summary-item">
+          <div class="round-icon gold">◷</div>
+          <div>
+            <div class="item-label">Withdrawal In Processing</div>
+            <div class="item-value gold-text">13,873 USDT</div><a href="index2.html"><span class="status">Withdrawal status</span></a>
+          </div>
+        </div>
+        <div class="summary-item">
+          <div class="round-icon">▣</div>
+          <div>
+            <div class="item-label">Withdrawal amount</div>
+            <div class="item-value">13,873 USDT</div>
+            <div class="item-label">Total amount</div>
+          </div>
+        </div>
+        <div class="summary-item">
+          <div class="round-icon">▤</div>
+          <div>
+            <div class="item-label">Remaining Balance</div>
+            <div class="item-value">0 USDT</div>
+            <div class="item-label"></div>
+          </div>
+        </div>
+      </div>
+      <div class="address">To: 0x1399623a8aa55d6a21f8fa7bd5250fdd736d106a</div>
+      <div class="withdraw-strip">
+        <div class="round-icon">➤</div>
+        <div class="withdraw-copy"><strong>Withdraw All</strong><span>Proceed to withdraw or 
+            transferred.</span></div>
+            <a href="index2.html">
+        <button class="primary-btn" type="button">Withdraw All ›</button></a>
+      </div>
+    </section>
+
+    <section class="panel section">
+      <h2 class="section-title">Pending Withdrawal Details</h2>
+      <div class="details-row">
+        <div class="detail-block">
+          <div class="detail-label">Amount</div>
+          <div class="detail-value">13,873 USDT</div>
+        </div>
+        <div class="detail-block">
+          <div class="detail-label">Status</div><span class="status">Clog On Blockchain</span>
+        </div>
+        <div class="detail-block">
+          <div class="detail-label">To Address</div>
+          <div class="detail-value address-value">0x1399623a8aa55d6a21f8fa7bd5250fdd736d106a</div>
+        </div>
+      </div>
+      <div class="fee-box">
+        <div class="fee-item">
+          <div class="round-icon">◆</div>
+          <div>
+            <div class="detail-label">Network fee paid</div>
+            <div class="detail-value">0.31555695 ETH</div>
+          </div>
+        </div>
+        <div class="fee-item">
+          <div class="round-icon">▤</div>
+          <div>
+            <div class="detail-label">Illustrative charge</div>
+            <div class="detail-value">5.05%</div>
+          </div>
+        </div>
+        <a href="index2.html">
+        <div class="fee-note">Proceed with Withdrawal Dashboard</div></a>
+      </div>
+    </section>
+
+    
+    <p class="demo-note">Mera X Vault Dashboard</p>
+  </div>
+</body>
+</html>

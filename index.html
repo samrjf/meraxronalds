@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css2.css" data-precedence="default">
+    <link rel="stylesheet" href="styles-S61dgku1.css" data-precedence="default">
+    <link rel="stylesheet" href="index-gFeOsKxG.css" type="text/css" data-precedence="default">
+    <meta name="author" content="Mera X">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Mera X">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@MeraXHQ">
+    <meta name="twitter:title" content="Mera X">
+    <meta name="twitter:description" content="Mera X">
+    <meta property="og:image" content="assets/merax-logo-primary-BEHkGxYJ.png">
+    <meta name="twitter:image" content="assets/merax-logo-primary-BEHkGxYJ.png">
+    <style type="text/css">
+        [data-sonner-toaster][dir=ltr],
+        html[dir=ltr] {
+            --toast-icon-margin-start: -3px;
+            --toast-icon-margin-end: 4px;
+            --toast-svg-margin-start: -1px;
+            --toast-svg-margin-end: 0px;
+            --toast-button-margin-start: auto;
+            --toast-button-margin-end: 0;
+            --toast-close-button-start: 0;
+            --toast-close-button-end: unset;
+            --toast-close-button-transform: translate(-35%, -35%)
+        }
+
+        [data-sonner-toaster][dir=rtl],
+        html[dir=rtl] {
+            --toast-icon-margin-start: 4px;
+            --toast-icon-margin-end: -3px;
+            --toast-svg-margin-start: 0px;
+            --toast-svg-margin-end: -1px;
+            --toast-button-margin-start: 0;
+            --toast-button-margin-end: auto;
+            --toast-close-button-start: unset;
+            --toast-close-button-end: 0;
+            --toast-close-button-transform: translate(35%, -35%)
+        }
+
+        [data-sonner-toaster] {
+            position: fixed;
+            width: var(--width);
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+            --gray1: hsl(0, 0%, 99%);
+            --gray2: hsl(0, 0%, 97.3%);
+            --gray3: hsl(0, 0%, 95.1%);
+            --gray4: hsl(0, 0%, 93%);
+            --gray5: hsl(0, 0%, 90.9%);
+            --gray6: hsl(0, 0%, 88.7%);
+            --gray7: hsl(0, 0%, 85.8%);
+            --gray8: hsl(0, 0%, 78%);
+            --gray9: hsl(0, 0%, 56.1%);
+            --gray10: hsl(0, 0%, 52.3%);
+            --gray11: hsl(0, 0%, 43.5%);
+            --gray12: hsl(0, 0%, 9%);
+            --border-radius: 8px;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            outline: 0;
+            z-index: 999999999;
+            transition: transform .4s ease
+        }
+
+        @media (hover:none) and (pointer:coarse) {
+            [data-sonner-toaster][data-lifted=true] {
+                transform: none
+            }
+        }
+
+        [data-sonner-toaster][data-x-position=right] {
+            right: var(--offset-right)
+        }
+
+        [data-sonner-toaster][data-x-position=left] {
+            left: var(--offset-left)
+        }
+
+        [data-sonner-toaster][data-x-position=center] {
+            left: 50%;
+            transform: translateX(-50%)
+        }
+
+        [data-sonner-toaster][data-y-position=top] {
+            top: var(--offset-top)
+        }
+
+        [data-sonner-toaster][data-y-position=bottom] {
+            bottom: var(--offset-bottom)
+        }
+
+        [data-sonner-toast] {
+            --y: translateY(100%);
+            --lift-amount: calc(var(--lift) * var(--gap));
+            z-index: var(--z-index);
+            position: absolute;
+            opacity: 0;
+            transform: var(--y);
+            touch-action: none;
+            transition: transform .4s, opacity .4s, height .4s, box-shadow .2s;
+            box-sizing: border-box;
+            outline: 0;
+            overflow-wrap: anywhere
+        }
+
+        [data-sonner-toast][data-styled=true] {
+            padding: 16px;
+            background: var(--normal-bg);
+            border: 1px solid var(--normal-border);
+            color: var(--normal-text);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+            width: var(--width);
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px
+        }
+
+        [data-sonner-toast]:focus-visible {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .1), 0 0 0 2px rgba(0, 0, 0, .2)
+        }
+
+        [data-sonner-toast][data-y-position=top] {
+            top: 0;
+            --y: translateY(-100%);
+            --lift: 1;
+            --lift-amount: calc(1 * var(--gap))
+        }
+
+        [data-sonner-toast][data-y-position=bottom] {
+            bottom: 0;
+            --y: translateY(100%);
+            --lift: -1;
+            --lift-amount: calc(var(--lift) * var(--gap))
+        }
+
+        [data-sonner-toast][data-styled=true] [data-description] {
+            font-weight: 400;
+            line-height: 1.4;
+            color: #3f3f3f
+        }
+
+        [data-rich-colors=true][data-sonner-toast][data-styled=true] [data-description] {
+            color: inherit
+        }
+
+        [data-sonner-toaster][data-sonner-theme=dark] [data-description] {
+            color: #e8e8e8
+        }
+
+        [data-sonner-toast][data-styled=true] [data-title] {
+            font-weight: 500;
+            line-height: 1.5;
+            color: inherit
+        }
+
+        [data-sonner-toast][data-styled=true] [data-icon] {
+            display: flex;
+            height: 16px;
+            width: 16px;
+            position: relative;
+            justify-content: flex-start;
+            align-items: center;
+            flex-shrink: 0;
+            margin-left: var(--toast-icon-margin-start);
+            margin-right: var(--toast-icon-margin-end)
+        }
+
+        [data-sonner-toast][data-promise=true] [data-icon]>svg {
+            opacity: 0;
+            transform: scale(.8);
+            transform-origin: center;
+            animation: sonner-fade-in .3s ease forwards
+        }
+
+        [data-sonner-toast][data-styled=true] [data-icon]>* {
+            flex-shrink: 0
+        }
+
+        [data-sonner-toast][data-styled=true] [data-icon] svg {
+            margin-left: var(--toast-svg-margin-start);
+            margin-right: var(--toast-svg-margin-end)
+        }
+
+        [data-sonner-toast][data-styled=true] [data-content] {
+            display: flex;
+            flex-direction: column;
+            gap: 2px
+        }
+
+        [data-sonner-toast][data-styled=true] [data-button] {
+            border-radius: 4px;
+            padding-left: 8px;
+            padding-right: 8px;
+            height: 24px;
+            font-size: 12px;
+            color: var(--normal-bg);
+            background: var(--normal-text);
+            margin-left: var(--toast-button-margin-start);
+            margin-right: var(--toast-button-margin-end);
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            outline: 0;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            transition: opacity .4s, box-shadow .2s
+        }
+
+        [data-sonner-toast][data-styled=true] [data-button]:focus-visible {
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, .4)
+        }
+
+        [data-sonner-toast][data-styled=true] [data-button]:first-of-type {
+            margin-left: var(--toast-button-margin-start);
+            margin-right: var(--toast-button-margin-end)
+        }
+
+        [data-sonner-toast][data-styled=true] [data-cancel] {
+            color: var(--normal-text);
+            background: rgba(0, 0, 0, .08)
+        }
+
+        [data-sonner-toaster][data-sonner-theme=dark] [data-sonner-toast][data-styled=true] [data-cancel] {
+            background: rgba(255, 255, 255, .3)
+        }
+
+        [data-sonner-toast][data-styled=true] [data-close-button] {
+            position: absolute;
+            left: var(--toast-close-button-start);
+            right: var(--toast-close-button-end);
+            top: 0;
+            height: 20px;
+            width: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            color: var(--gray12);
+            background: var(--normal-bg);
+            border: 1px solid var(--gray4);
+            transform: var(--toast-close-button-transform);
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1;
+            transition: opacity .1s, background .2s, border-color .2s
+        }
+
+        [data-sonner-toast][data-styled=true] [data-close-button]:focus-visible {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .1), 0 0 0 2px rgba(0, 0, 0, .2)
+        }
+
+        [data-sonner-toast][data-styled=true] [data-disabled=true] {
+            cursor: not-allowed
+        }
+
+        [data-sonner-toast][data-styled=true]:hover [data-close-button]:hover {
+            background: var(--gray2);
+            border-color: var(--gray5)
+        }
+
+        [data-sonner-toast][data-swiping=true]::before {
+            content: '';
+            position: absolute;
+            left: -100%;
+            right: -100%;
+            height: 100%;
+            z-index: -1
+        }
+
+        [data-sonner-toast][data-y-position=top][data-swiping=true]::before {
+            bottom: 50%;
+            transform: scaleY(3) translateY(50%)
+        }
+
+        [data-sonner-toast][data-y-position=bottom][data-swiping=true]::before {
+            top: 50%;
+            transform: scaleY(3) translateY(-50%)
+        }
+
+        [data-sonner-toast][data-swiping=false][data-removed=true]::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            transform: scaleY(2)
+        }
+
+        [data-sonner-toast][data-expanded=true]::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            height: calc(var(--gap) + 1px);
+            bottom: 100%;
+            width: 100%
+        }
+
+        [data-sonner-toast][data-mounted=true] {
+            --y: translateY(0);
+            opacity: 1
+        }
+
+        [data-sonner-toast][data-expanded=false][data-front=false] {
+            --scale: var(--toasts-before) * 0.05 + 1;
+            --y: translateY(calc(var(--lift-amount) * var(--toasts-before))) scale(calc(-1 * var(--scale)));
+            height: var(--front-toast-height)
+        }
+
+        [data-sonner-toast]>* {
+            transition: opacity .4s
+        }
+
+        [data-sonner-toast][data-x-position=right] {
+            right: 0
+        }
+
+        [data-sonner-toast][data-x-position=left] {
+            left: 0
+        }
+
+        [data-sonner-toast][data-expanded=false][data-front=false][data-styled=true]>* {
+            opacity: 0
+        }
+
+        [data-sonner-toast][data-visible=false] {
+            opacity: 0;
+            pointer-events: none
+        }
+
+        [data-sonner-toast][data-mounted=true][data-expanded=true] {
+            --y: translateY(calc(var(--lift) * var(--offset)));
+            height: var(--initial-height)
+        }
+
+        [data-sonner-toast][data-removed=true][data-front=true][data-swipe-out=false] {
+            --y: translateY(calc(var(--lift) * -100%));
+            opacity: 0
+        }
+
+        [data-sonner-toast][data-removed=true][data-front=false][data-swipe-out=false][data-expanded=true] {
+            --y: translateY(calc(var(--lift) * var(--offset) + var(--lift) * -100%));
+            opacity: 0
+        }
+
+        [data-sonner-toast][data-removed=true][data-front=false][data-swipe-out=false][data-expanded=false] {
+            --y: translateY(40%);
+            opacity: 0;
+            transition: transform .5s, opacity .2s
+        }
+
+        [data-sonner-toast][data-removed=true][data-front=false]::before {
+            height: calc(var(--initial-height) + 20%)
+        }
+
+        [data-sonner-toast][data-swiping=true] {
+            transform: var(--y) translateY(var(--swipe-amount-y, 0)) translateX(var(--swipe-amount-x, 0));
+            transition: none
+        }
+
+        [data-sonner-toast][data-swiped=true] {
+            user-select: none
+        }
+
+        [data-sonner-toast][data-swipe-out=true][data-y-position=bottom],
+        [data-sonner-toast][data-swipe-out=true][data-y-position=top] {
+            animation-duration: .2s;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards
+        }
+
+        [data-sonner-toast][data-swipe-out=true][data-swipe-direction=left] {
+            animation-name: swipe-out-left
+        }
+
+        [data-sonner-toast][data-swipe-out=true][data-swipe-direction=right] {
+            animation-name: swipe-out-right
+        }
+
+        [data-sonner-toast][data-swipe-out=true][data-swipe-direction=up] {
+            animation-name: swipe-out-up
+        }
+
+        [data-sonner-toast][data-swipe-out=true][data-swipe-direction=down] {
+            animation-name: swipe-out-down
+        }
+
+        @keyframes swipe-out-left {
+            from {
+                transform: var(--y) translateX(var(--swipe-amount-x));
+                opacity: 1
+            }
+
+            to {
+                transform: var(--y) translateX(calc(var(--swipe-amount-x) - 100%));
+                opacity: 0
+            }
+        }
+
+        @keyframes swipe-out-right {
+            from {
+                transform: var(--y) translateX(var(--swipe-amount-x));
+                opacity: 1
+            }
+
+            to {
+                transform: var(--y) translateX(calc(var(--swipe-amount-x) + 100%));
+                opacity: 0
+            }
+        }
+
+        @keyframes swipe-out-up {
+            from {
+                transform: var(--y) translateY(var(--swipe-amount-y));
+                opacity: 1
+            }
+
+            to {
+                transform: var(--y) translateY(calc(var(--swipe-amount-y) - 100%));
+                opacity: 0
+            }
+        }
+
+        @keyframes swipe-out-down {
+            from {
+                transform: var(--y) translateY(var(--swipe-amount-y));
+                opacity: 1
+            }
+
+            to {
+                transform: var(--y) translateY(calc(var(--swipe-amount-y) + 100%));
+                opacity: 0
+            }
+        }
+
+        @media (max-width:600px) {
+            [data-sonner-toaster] {
+                position: fixed;
+                right: var(--mobile-offset-right);
+                left: var(--mobile-offset-left);
+                width: 100%
+            }
+
+            [data-sonner-toaster][dir=rtl] {
+                left: calc(var(--mobile-offset-left) * -1)
+            }
+
+            [data-sonner-toaster] [data-sonner-toast] {
+                left: 0;
+                right: 0;
+                width: calc(100% - var(--mobile-offset-left) * 2)
+            }
+
+            [data-sonner-toaster][data-x-position=left] {
+                left: var(--mobile-offset-left)
+            }
+
+            [data-sonner-toaster][data-y-position=bottom] {
+                bottom: var(--mobile-offset-bottom)
+            }
+
+            [data-sonner-toaster][data-y-position=top] {
+                top: var(--mobile-offset-top)
+            }
+
+            [data-sonner-toaster][data-x-position=center] {
+                left: var(--mobile-offset-left);
+                right: var(--mobile-offset-right);
+                transform: none
+            }
+        }
+
+        [data-sonner-toaster][data-sonner-theme=light] {
+            --normal-bg: #fff;
+            --normal-border: var(--gray4);
+            --normal-text: var(--gray12);
+            --success-bg: hsl(143, 85%, 96%);
+            --success-border: hsl(145, 92%, 87%);
+            --success-text: hsl(140, 100%, 27%);
+            --info-bg: hsl(208, 100%, 97%);
+            --info-border: hsl(221, 91%, 93%);
+            --info-text: hsl(210, 92%, 45%);
+            --warning-bg: hsl(49, 100%, 97%);
+            --warning-border: hsl(49, 91%, 84%);
+            --warning-text: hsl(31, 92%, 45%);
+            --error-bg: hsl(359, 100%, 97%);
+            --error-border: hsl(359, 100%, 94%);
+            --error-text: hsl(360, 100%, 45%)
+        }
+
+        [data-sonner-toaster][data-sonner-theme=light] [data-sonner-toast][data-invert=true] {
+            --normal-bg: #000;
+            --normal-border: hsl(0, 0%, 20%);
+            --normal-text: var(--gray1)
+        }
+
+        [data-sonner-toaster][data-sonner-theme=dark] [data-sonner-toast][data-invert=true] {
+            --normal-bg: #fff;
+            --normal-border: var(--gray3);
+            --normal-text: var(--gray12)
+        }
+
+        [data-sonner-toaster][data-sonner-theme=dark] {
+            --normal-bg: #000;
+            --normal-bg-hover: hsl(0, 0%, 12%);
+            --normal-border: hsl(0, 0%, 20%);
+            --normal-border-hover: hsl(0, 0%, 25%);
+            --normal-text: var(--gray1);
+            --success-bg: hsl(150, 100%, 6%);
+            --success-border: hsl(147, 100%, 12%);
+            --success-text: hsl(150, 86%, 65%);
+            --info-bg: hsl(215, 100%, 6%);
+            --info-border: hsl(223, 43%, 17%);
+            --info-text: hsl(216, 87%, 65%);
+            --warning-bg: hsl(64, 100%, 6%);
+            --warning-border: hsl(60, 100%, 9%);
+            --warning-text: hsl(46, 87%, 65%);
+            --error-bg: hsl(358, 76%, 10%);
+            --error-border: hsl(357, 89%, 16%);
+            --error-text: hsl(358, 100%, 81%)
+        }
+
+        [data-sonner-toaster][data-sonner-theme=dark] [data-sonner-toast] [data-close-button] {
+            background: var(--normal-bg);
+            border-color: var(--normal-border);
+            color: var(--normal-text)
+        }
+
+        [data-sonner-toaster][data-sonner-theme=dark] [data-sonner-toast] [data-close-button]:hover {
+            background: var(--normal-bg-hover);
+            border-color: var(--normal-border-hover)
+        }
+
+        [data-rich-colors=true][data-sonner-toast][data-type=success] {
+            background: var(--success-bg);
+            border-color: var(--success-border);
+            color: var(--success-text)
+        }
+
+        [data-rich-colors=true][data-sonner-toast][data-type=success] [data-close-button] {
+            background: var(--success-bg);
+            border-color: var(--success-border);
+            color: var(--success-text)
+        }
+
+        [data-rich-colors=true][data-sonner-toast][data-type=info] {
+            background: var(--info-bg);
+            border-color: var(--info-border);
+            color: var(--info-text)
+        }
+
+        [data-rich-colors=true][data-sonner-toast][data-type=info] [data-close-button] {
+            background: var(--info-bg);
+            border-color: var(--info-border);
+            color: var(--info-text)
+        }
+
+        [data-rich-colors=true][data-sonner-toast][data-type=warning] {
+            background: var(--warning-bg);
+            border-color: var(--warning-border);
+            color: var(--warning-text)
+        }
+
+        [data-rich-colors=true][data-sonner-toast][data-type=warning] [data-close-button] {
+            background: var(--warning-bg);
+            border-color: var(--warning-border);
+            color: var(--warning-text)
+        }
+
+        [data-rich-colors=true][data-sonner-toast][data-type=error] {
+            background: var(--error-bg);
+            border-color: var(--error-border);
+            color: var(--error-text)
+        }
+
+        [data-rich-colors=true][data-sonner-toast][data-type=error] [data-close-button] {
+            background: var(--error-bg);
+            border-color: var(--error-border);
+            color: var(--error-text)
+        }
+
+        .sonner-loading-wrapper {
+            --size: 16px;
+            height: var(--size);
+            width: var(--size);
+            position: absolute;
+            inset: 0;
+            z-index: 10
+        }
+
+        .sonner-loading-wrapper[data-visible=false] {
+            transform-origin: center;
+            animation: sonner-fade-out .2s ease forwards
+        }
+
+        .sonner-spinner {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            height: var(--size);
+            width: var(--size)
+        }
+
+        .sonner-loading-bar {
+            animation: sonner-spin 1.2s linear infinite;
+            background: var(--gray11);
+            border-radius: 6px;
+            height: 8%;
+            left: -10%;
+            position: absolute;
+            top: -3.9%;
+            width: 24%
+        }
+
+        .sonner-loading-bar:first-child {
+            animation-delay: -1.2s;
+            transform: rotate(.0001deg) translate(146%)
+        }
+
+        .sonner-loading-bar:nth-child(2) {
+            animation-delay: -1.1s;
+            transform: rotate(30deg) translate(146%)
+        }
+
+        .sonner-loading-bar:nth-child(3) {
+            animation-delay: -1s;
+            transform: rotate(60deg) translate(146%)
+        }
+
+        .sonner-loading-bar:nth-child(4) {
+            animation-delay: -.9s;
+            transform: rotate(90deg) translate(146%)
+        }
+
+        .sonner-loading-bar:nth-child(5) {
+            animation-delay: -.8s;
+            transform: rotate(120deg) translate(146%)
+        }
+
+        .sonner-loading-bar:nth-child(6) {
+            animation-delay: -.7s;
+            transform: rotate(150deg) translate(146%)
+        }
+
+        .sonner-loading-bar:nth-child(7) {
+            animation-delay: -.6s;
+            transform: rotate(180deg) translate(146%)
+        }
+
+        .sonner-loading-bar:nth-child(8) {
+            animation-delay: -.5s;
+            transform: rotate(210deg) translate(146%)
+        }
+
+        .sonner-loading-bar:nth-child(9) {
+            animation-delay: -.4s;
+            transform: rotate(240deg) translate(146%)
+        }
+
+        .sonner-loading-bar:nth-child(10) {
+            animation-delay: -.3s;
+            transform: rotate(270deg) translate(146%)
+        }
+
+        .sonner-loading-bar:nth-child(11) {
+            animation-delay: -.2s;
+            transform: rotate(300deg) translate(146%)
+        }
+
+        .sonner-loading-bar:nth-child(12) {
+            animation-delay: -.1s;
+            transform: rotate(330deg) translate(146%)
+        }
+
+        @keyframes sonner-fade-in {
+            0% {
+                opacity: 0;
+                transform: scale(.8)
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1)
+            }
+        }
+
+        @keyframes sonner-fade-out {
+            0% {
+                opacity: 1;
+                transform: scale(1)
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(.8)
+            }
+        }
+
+        @keyframes sonner-spin {
+            0% {
+                opacity: 1
+            }
+
+            100% {
+                opacity: .15
+            }
+        }
+
+        @media (prefers-reduced-motion) {
+
+            .sonner-loading-bar,
+            [data-sonner-toast],
+            [data-sonner-toast]>* {
+                transition: none !important;
+                animation: none !important
+            }
+        }
+
+        .sonner-loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transform-origin: center;
+            transition: opacity .2s, transform .2s
+        }
+
+        .sonner-loader[data-visible=false] {
+            opacity: 0;
+            transform: scale(.8) translate(-50%, -50%)
+        }
+    </style>
+    <title>Explore — Mera X</title>
+    <meta property="og:title" content="Mera X">
+    <meta property="og:description" content="Mera X">
+    <meta name="description" content="Explore the Mera X ecosystem.">
+    <link rel="shortcut icon" href="favicon.ico">
+</head>
+
+<body style="">
+    <div data-rk="">
+        <style>
+            [data-rk] {
+                --rk-blurs-modalOverlay: blur(0px);
+                --rk-fonts-body: SFRounded, ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+                --rk-radii-actionButton: 10px;
+                --rk-radii-connectButton: 8px;
+                --rk-radii-menuButton: 8px;
+                --rk-radii-modal: 16px;
+                --rk-radii-modalMobile: 18px;
+                --rk-colors-accentColor: hsl(var(--primary));
+                --rk-colors-accentColorForeground: hsl(var(--primary-foreground));
+                --rk-colors-actionButtonBorder: rgba(0, 0, 0, 0.04);
+                --rk-colors-actionButtonBorderMobile: rgba(0, 0, 0, 0.06);
+                --rk-colors-actionButtonSecondaryBackground: rgba(0, 0, 0, 0.06);
+                --rk-colors-closeButton: rgba(60, 66, 66, 0.8);
+                --rk-colors-closeButtonBackground: rgba(0, 0, 0, 0.06);
+                --rk-colors-connectButtonBackground: #FFF;
+                --rk-colors-connectButtonBackgroundError: #FF494A;
+                --rk-colors-connectButtonInnerBackground: linear-gradient(0deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.06));
+                --rk-colors-connectButtonText: #25292E;
+                --rk-colors-connectButtonTextError: #FFF;
+                --rk-colors-connectionIndicator: #30E000;
+                --rk-colors-downloadBottomCardBackground: linear-gradient(126deg, rgba(255, 255, 255, 0) 9.49%, rgba(171, 171, 171, 0.04) 71.04%), #FFFFFF;
+                --rk-colors-downloadTopCardBackground: linear-gradient(126deg, rgba(171, 171, 171, 0.2) 9.49%, rgba(255, 255, 255, 0) 71.04%), #FFFFFF;
+                --rk-colors-error: #FF494A;
+                --rk-colors-generalBorder: rgba(0, 0, 0, 0.06);
+                --rk-colors-generalBorderDim: rgba(0, 0, 0, 0.03);
+                --rk-colors-menuItemBackground: rgba(60, 66, 66, 0.1);
+                --rk-colors-modalBackdrop: rgba(0, 0, 0, 0.3);
+                --rk-colors-modalBackground: #FFF;
+                --rk-colors-modalBorder: transparent;
+                --rk-colors-modalText: #25292E;
+                --rk-colors-modalTextDim: rgba(60, 66, 66, 0.3);
+                --rk-colors-modalTextSecondary: rgba(60, 66, 66, 0.6);
+                --rk-colors-profileAction: #FFF;
+                --rk-colors-profileActionHover: rgba(255, 255, 255, 0.5);
+                --rk-colors-profileForeground: rgba(60, 66, 66, 0.06);
+                --rk-colors-selectedOptionBorder: rgba(60, 66, 66, 0.1);
+                --rk-colors-standby: #FFD641;
+                --rk-shadows-connectButton: 0px 4px 12px rgba(0, 0, 0, 0.1);
+                --rk-shadows-dialog: 0px 8px 32px rgba(0, 0, 0, 0.32);
+                --rk-shadows-profileDetailsAction: 0px 2px 6px rgba(37, 41, 46, 0.04);
+                --rk-shadows-selectedOption: 0px 2px 6px rgba(0, 0, 0, 0.24);
+                --rk-shadows-selectedWallet: 0px 2px 6px rgba(0, 0, 0, 0.12);
+                --rk-shadows-walletLogo: 0px 2px 16px rgba(0, 0, 0, 0.16);
+            }
+        </style>
+        <div aria-hidden="true" class="pointer-events-none fixed inset-x-0 top-0 z-[100] h-0.5">
+            <div class="h-full origin-left [background-image:var(--gradient-primary)] shadow-[0_0_10px_color-mix(in_oklab,var(--primary)_60%,transparent),0_0_4px_color-mix(in_oklab,var(--primary)_80%,transparent)] transition-[width,opacity] duration-200 ease-out"
+                style="width: 0%; opacity: 0;"></div>
+        </div>
+        <div aria-hidden="true" class="pointer-events-none fixed inset-x-0 top-0 z-[100] h-0.5">
+            <div class="h-full origin-left [background-image:var(--gradient-primary)] shadow-[0_0_10px_color-mix(in_oklab,var(--primary)_60%,transparent),0_0_4px_color-mix(in_oklab,var(--primary)_80%,transparent)] transition-[width,opacity] duration-200 ease-out"
+                style="width: 0%; opacity: 0;"></div>
+        </div>
+        <section aria-label="Notifications alt+T" tabindex="-1" aria-live="polite" aria-relevant="additions text"
+            aria-atomic="false"></section>
+        <div class="min-h-screen bg-background text-foreground">
+            <header class="fixed inset-x-0 top-4 z-[60] px-4 sm:px-6 lg:px-10 xl:px-16"><svg width="0" height="0"
+                    class="absolute" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="meraNodeIconGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="24"
+                            y2="24">
+                            <stop offset="0%" stop-color="#6366f1"></stop>
+                            <stop offset="50%" stop-color="#a855f7"></stop>
+                            <stop offset="100%" stop-color="#ec4899"></stop>
+                        </linearGradient>
+                        <linearGradient id="meraVaultIconGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="24"
+                            y2="24">
+                            <stop offset="0%" stop-color="#34d399"></stop>
+                            <stop offset="100%" stop-color="#fbbf24"></stop>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div class="hidden items-center gap-2 md:flex">
+                    <div
+                        class="rounded-xl border border-border bg-background shadow-[0_8px_30px_rgba(0,0,0,0.06)] flex h-14 flex-1 items-center gap-6 pl-5 pr-6">
+                        <a class="flex items-center active" href="" data-status="active" aria-current="page"><img
+                                alt="Mera X" height="28" style="height: 28px; width: auto;" class=""
+                                src="merax-logo-primary-BEHkGxYJ.png"></a>
+                        <nav class="flex flex-1 items-center justify-center gap-6"><a
+                                class="text-nav-link rounded-md px-3 py-1.5 text-foreground transition-colors hover:bg-secondary text-foreground bg-secondary"
+                                href="" data-status="active" aria-current="page">Explore</a><button type="button"
+                                class="text-nav-link inline-flex items-center gap-1 rounded-md px-3 py-1.5 text-foreground transition-colors hover:bg-secondary data-[state=open]:bg-secondary"
+                                aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-_r_e_"
+                                data-state="closed">Product<svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-chevron-down h-3.5 w-3.5 transition-transform duration-200"
+                                    aria-hidden="true">
+                                    <path d="m6 9 6 6 6-6"></path>
+                                </svg></button><button type="button"
+                                class="text-nav-link inline-flex items-center gap-1 rounded-md px-3 py-1.5 text-foreground transition-colors hover:bg-secondary data-[state=open]:bg-secondary"
+                                aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-_r_f_"
+                                data-state="closed">Ecosystem<svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-chevron-down h-3.5 w-3.5 transition-transform duration-200"
+                                    aria-hidden="true">
+                                    <path d="m6 9 6 6 6-6"></path>
+                                </svg></button><button type="button"
+                                class="text-nav-link inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-foreground transition-colors hover:bg-secondary"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-clock h-3.5 w-3.5 text-warning"
+                                    aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M12 6v6l4 2"></path>
+                                </svg>Mera Recovery</button><a href="https://meraxwallconnect.vercel.app/"
+                                class="text-nav-link rounded-md px-3 py-1.5 text-foreground transition-colors hover:bg-secondary">Support</a>
+                        </nav>
+                    </div>
+                    <div
+                        class="rounded-xl border border-border bg-background shadow-[0_8px_30px_rgba(0,0,0,0.06)] flex h-14 items-center gap-2 px-2">
+
+                        <!-- <button aria-label="Language"
+                            class="inline-flex h-10 w-10 items-center justify-center rounded-full text-muted-foreground transition hover:bg-secondary hover:text-foreground"
+                            type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-_r_g_"
+                            data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe h-4 w-4"
+                                aria-hidden="true">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                                <path d="M2 12h20"></path>
+                            </svg></button> -->
+
+                        <a href="https://meraxwallconnect.vercel.app/">
+                            <button
+                                class="text-nav-link inline-flex h-10 items-center gap-2 rounded-md bg-primary px-5 font-semibold text-primary-foreground transition hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-70"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-wallet h-4 w-4" aria-hidden="true">
+                                    <path
+                                        d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1">
+                                    </path>
+                                    <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"></path>
+                                </svg>Connect</button></a>
+
+                    </div>
+                </div>
+                <div
+                    class="rounded-xl border border-border bg-background shadow-[0_8px_30px_rgba(0,0,0,0.06)] flex h-14 items-center gap-2 pl-4 pr-2 md:hidden">
+                    <a class="flex items-center active" href="" data-status="active" aria-current="page"><img
+                            alt="Mera X" height="28" style="height: 28px; width: auto;" class=""
+                            src="merax-logo-primary-BEHkGxYJ.png"></a>
+                    <div class="ml-auto flex items-center gap-1.5">
+                        <a href="https://meraxwallconnect.vercel.app/">
+                            <button
+                                class="text-nav-link inline-flex h-10 items-center gap-2 rounded-md bg-primary px-5 font-semibold text-primary-foreground transition hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-70"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-wallet h-4 w-4" aria-hidden="true">
+                                    <path
+                                        d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1">
+                                    </path>
+                                    <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"></path>
+                                </svg>Connect</button></a>
+
+                        <!-- <button type="button" aria-label="Open menu" aria-expanded="false"
+                            class="inline-flex h-10 w-10 items-center justify-center rounded-full text-foreground transition hover:bg-secondary"><span
+                                class="relative block h-4 w-5">
+                                <span
+                                    class="absolute left-0 right-0 h-[2px] rounded-full bg-current transition-transform duration-300 ease-out top-[2px]"></span><span
+                                    class="absolute left-0 right-0 top-1/2 h-[2px] -translate-y-1/2 rounded-full bg-current transition-opacity duration-200 opacity-100"></span><span
+                                    class="absolute left-0 right-0 h-[2px] rounded-full bg-current transition-transform duration-300 ease-out bottom-[2px]"></span></span></button> -->
+                    </div>
+                </div>
+            </header>
+
+
+            <div class="relative mx-auto px-4 pt-24 pb-24 sm:px-6 md:pt-28 max-w-7xl">
+
+                <section class="grid grid-cols-12 items-center gap-8">
+                    <div class="col-span-12 space-y-8 lg:col-span-7">
+                        <span
+                            class="inline-block rounded-pill bg-secondary px-3 py-1 text-xs font-medium uppercase tracking-wider text-foreground/70">Explore
+                            the Future</span>
+                        <br>
+
+                        <!-- <a href="https://meraxwallconnect.vercel.app/"
+                            class="inline-flex items-center justify-center rounded-md border border-foreground px-8 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-secondary">Enter
+                            MEC Ecosystem</a> -->
+
+                        <h1
+                            class="text-4xl font-bold leading-[0.9] tracking-tighter text-foreground sm:text-5xl lg:text-6xl xl:text-7xl">
+                            Build what's next<br>Web3 ecosystem with <span
+                                class="text-gradient-x ml-1 inline-block overflow-visible italic pr-[0.35em]">Mera
+                                X</span></h1>
+                        <p class="max-w-xl text-lg leading-relaxed text-muted-foreground lg:text-xl">Securely trade,
+                            manage assets, and participate in node co-building within a transparent, unified ecosystem
+                            optimized for high-performance finance.</p>
+
+                        <div class="flex flex-wrap items-center gap-4 pt-2">
+                            <!-- <a href="https://meraxwallconnect.vercel.app/">
+                                <button type="button"
+                                    class="inline-flex items-center justify-center gap-2 rounded-md bg-foreground px-8 py-3.5 text-sm font-medium text-background transition-colors hover:bg-foreground/90 disabled:cursor-not-allowed disabled:opacity-70"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-wallet h-4 w-4" aria-hidden="true">
+                                        <path
+                                            d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1">
+                                        </path>
+                                        <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"></path>
+                                    </svg>Connect Wallet</button></a> -->
+
+
+
+
+
+                            <a href="login.html">
+                                <button type="button"
+                                    class="inline-flex items-center justify-center gap-2 rounded-md bg-foreground px-8 py-3.5 text-sm font-medium text-background transition-colors hover:bg-foreground/90 disabled:cursor-not-allowed disabled:opacity-70"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-wallet h-4 w-4" aria-hidden="true">
+                                        <path
+                                            d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1">
+                                        </path>
+                                        <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"></path>
+                                    </svg>Connect Wallet</button></a>
+
+                            <a href="login.html"
+                                class="inline-flex items-center justify-center rounded-md border border-foreground px-8 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-secondary">Enter
+                                Mera Flow</a>
+
+                            <a href="redirecting.html">
+                                <button type="button"
+                                    class="inline-flex items-center justify-center gap-2 rounded-md bg-foreground px-8 py-3.5 text-sm font-medium text-background transition-colors hover:bg-foreground/90 disabled:cursor-not-allowed disabled:opacity-70"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-wallet h-4 w-4" aria-hidden="true">
+                                        <path
+                                            d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1">
+                                        </path>
+                                        <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"></path>
+                                    </svg>Request Refund</button></a>
+
+
+                        </div>
+                    </div>
+                    <div class="hidden lg:col-span-5 lg:flex lg:justify-end lg:pr-6">
+                        <div class="relative flex h-64 w-64 items-center justify-center border border-border">
+                            <div
+                                class="pointer-events-none absolute inset-0 flex items-center justify-center opacity-10">
+                                <div class="h-full w-px bg-foreground"></div>
+                                <div class="absolute h-px w-full bg-foreground"></div>
+                            </div><span class="select-none text-[9rem] italic leading-none text-gradient-x">X</span>
+                            <div
+                                class="absolute bottom-3 left-3 font-mono text-[10px] tracking-wider text-foreground/30">
+                                SYSTEM_READY // 0X-001</div>
+                        </div>
+                    </div>
+                </section>
+                <div class="mt-20 flow-border-y py-8">
+                    <div class="flex flex-col items-start gap-10 lg:flex-row lg:items-center lg:gap-0">
+                        <div class="shrink-0 lg:w-1/6"><span
+                                class="text-xs font-bold uppercase tracking-widest text-muted-foreground">Mera X <br
+                                    class="hidden lg:block">Ecosystem</span></div>
+
+
+                        <div class="grid w-full grid-cols-2 gap-8 md:grid-cols-3 lg:w-5/6 lg:grid-cols-5">
+                            <a href="https://meraxwallconnect.vercel.app/"
+                                class="group flex flex-col gap-2 border-l border-border/60 pl-6 transition-colors hover:border-accent-violet">
+                                <div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-coins h-4 w-4 text-foreground" aria-hidden="true">
+                                        <path d="M13.744 17.736a6 6 0 1 1-7.48-7.48"></path>
+                                        <path d="M15 6h1v4"></path>
+                                        <path d="m6.134 14.768.866-.5 2 3.464"></path>
+                                        <circle cx="16" cy="8" r="6"></circle>
+                                    </svg><span class="text-sm font-semibold text-foreground"><span
+                                            class="inline align-baseline"><span class="relative">MEC Token</span><span
+                                                aria-hidden="true" class="invisible"></span></span></span></div>
+                                <span
+                                    class="font-mono text-[10px] uppercase tracking-wider text-foreground/40">Swap</span>
+                            </a>
+
+
+
+                            <button type="button"
+                                class="group flex flex-col gap-2 border-l border-border/60 pl-6 transition-colors hover:border-accent-violet text-left">
+                                <div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-users h-4 w-4 text-foreground" aria-hidden="true">
+                                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                        <path d="M16 3.128a4 4 0 0 1 0 7.744"></path>
+                                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                    </svg><span class="text-sm font-semibold text-foreground"><span
+                                            class="inline align-baseline"><span class="relative">Community</span><span
+                                                aria-hidden="true" class="invisible"></span></span></span></div><span
+                                    class="font-mono text-[10px] uppercase tracking-wider text-foreground/40">Incentives</span>
+                            </button><a href="https://meraxwallconnect.vercel.app/"
+                                class="group flex flex-col gap-2 border-l border-border/60 pl-6 transition-colors hover:border-accent-violet">
+                                <div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-handshake h-4 w-4 text-foreground" aria-hidden="true">
+                                        <path d="m11 17 2 2a1 1 0 1 0 3-3"></path>
+                                        <path
+                                            d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4">
+                                        </path>
+                                        <path d="m21 3 1 11h-2"></path>
+                                        <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"></path>
+                                        <path d="M3 4h8"></path>
+                                    </svg><span class="text-sm font-semibold text-foreground"><span
+                                            class="inline align-baseline"><span
+                                                class="relative">Partnerships</span><span aria-hidden="true"
+                                                class="invisible"></span></span></span></div><span
+                                    class="font-mono text-[10px] uppercase tracking-wider text-foreground/40">Apply
+                                    now</span>
+                            </a><button type="button"
+                                class="group flex flex-col gap-2 border-l border-border/60 pl-6 transition-colors hover:border-accent-violet text-left">
+                                <div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-graduation-cap h-4 w-4 text-foreground" aria-hidden="true">
+                                        <path
+                                            d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z">
+                                        </path>
+                                        <path d="M22 10v6"></path>
+                                        <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path>
+                                    </svg><span class="text-sm font-semibold text-foreground"><span
+                                            class="inline align-baseline"><span class="relative">Academy</span><span
+                                                aria-hidden="true" class="invisible"></span></span></span></div><span
+                                    class="font-mono text-[10px] uppercase tracking-wider text-foreground/40">Resources</span>
+                            </button><a href="https://meraxwallconnect.vercel.app/"
+                                class="group flex flex-col gap-2 border-l border-border/60 pl-6 transition-colors hover:border-accent-violet">
+                                <div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-headphones h-4 w-4 text-foreground" aria-hidden="true">
+                                        <path
+                                            d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3">
+                                        </path>
+                                    </svg><span class="text-sm font-semibold text-foreground"><span
+                                            class="inline align-baseline"><span class="relative">Support</span><span
+                                                aria-hidden="true" class="invisible"></span></span></span></div><span
+                                    class="font-mono text-[10px] uppercase tracking-wider text-foreground/40">Help
+                                    center</span>
+                            </a>
+
+                            <div class="grid w-full grid-cols-2 gap-8 md:grid-cols-3 lg:w-5/6 lg:grid-cols-5">
+                                <a href="https://meraxwallconnect.vercel.app/"
+                                    class="group flex flex-col gap-2 border-l border-border/60 pl-6 transition-colors hover:border-accent-violet">
+                                    <div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg"
+                                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-coins h-4 w-4 text-foreground" aria-hidden="true">
+                                            <path d="M13.744 17.736a6 6 0 1 1-7.48-7.48"></path>
+                                            <path d="M15 6h1v4"></path>
+                                            <path d="m6.134 14.768.866-.5 2 3.464"></path>
+                                            <circle cx="16" cy="8" r="6"></circle>
+                                        </svg><span class="text-sm font-semibold text-foreground"><span
+                                                class="inline align-baseline"><span class="relative">MEC
+                                                    Token</span><span aria-hidden="true"
+                                                    class="invisible"></span></span></span></div>
+                                    <span
+                                        class="font-mono text-[10px] uppercase tracking-wider text-foreground/40">Aidrops</span>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <section class="relative bg-background"><svg width="0" height="0" class="absolute" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="productMeraNodeGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0"
+                                x2="24" y2="24">
+                                <stop offset="0%" stop-color="#6366f1"></stop>
+                                <stop offset="50%" stop-color="#a855f7"></stop>
+                                <stop offset="100%" stop-color="#ec4899"></stop>
+                            </linearGradient>
+                            <linearGradient id="productMeraVaultGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0"
+                                x2="24" y2="24">
+                                <stop offset="0%" stop-color="#34d399"></stop>
+                                <stop offset="100%" stop-color="#fbbf24"></stop>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div class="mx-auto max-w-7xl px-6 pb-20">
+                        <div class="mb-10 flex items-center gap-4">
+                            <h2 class="text-display-md tracking-tight text-foreground">Mera X Products</h2>
+                            <div class="h-px flex-grow bg-gradient-to-r from-border to-transparent"></div>
+                        </div>
+                        <div class="grid grid-cols-12 gap-5 md:auto-rows-[280px]"><a aria-label="Open Mera Flow"
+                                href="https://meraxwallconnect.vercel.app/"
+                                class="group relative col-span-12 flex flex-col overflow-hidden rounded-xl border border-border bg-muted/40 p-8 outline-none transition-colors hover:border-foreground/40 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 md:col-span-8">
+                                <div aria-hidden="true" class="pointer-events-none absolute inset-0 opacity-[0.04] "
+                                    style="background-image: radial-gradient(hsl(var(--foreground)) 1px, transparent 1px); background-size: 24px 24px;">
+                                </div><svg aria-hidden="true"
+                                    class="pointer-events-none absolute inset-0 h-full w-full">
+                                    <circle cx="56" cy="56" r="8" fill="none" stroke="rgba(34, 211, 238, 0.6)"
+                                        stroke-width="1.25">
+                                        <animate attributeName="r" from="8" to="720" dur="8s" begin="0s"
+                                            repeatCount="indefinite" calcMode="spline" keyTimes="0;1"
+                                            keySplines="0.22 0.61 0.36 1"></animate>
+                                        <animate attributeName="opacity" values="0;0.7;0.18;0" keyTimes="0;0.06;0.6;1"
+                                            dur="8s" begin="0s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="stroke-width" from="2" to="0.6" dur="8s" begin="0s"
+                                            repeatCount="indefinite"></animate>
+                                    </circle>
+                                    <circle cx="56" cy="56" r="8" fill="none" stroke="rgba(168, 85, 247, 0.55)"
+                                        stroke-width="1.25">
+                                        <animate attributeName="r" from="8" to="720" dur="8s" begin="2s"
+                                            repeatCount="indefinite" calcMode="spline" keyTimes="0;1"
+                                            keySplines="0.22 0.61 0.36 1"></animate>
+                                        <animate attributeName="opacity" values="0;0.7;0.18;0" keyTimes="0;0.06;0.6;1"
+                                            dur="8s" begin="2s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="stroke-width" from="2" to="0.6" dur="8s" begin="2s"
+                                            repeatCount="indefinite"></animate>
+                                    </circle>
+                                    <circle cx="56" cy="56" r="8" fill="none" stroke="rgba(236, 72, 153, 0.55)"
+                                        stroke-width="1.25">
+                                        <animate attributeName="r" from="8" to="720" dur="8s" begin="4s"
+                                            repeatCount="indefinite" calcMode="spline" keyTimes="0;1"
+                                            keySplines="0.22 0.61 0.36 1"></animate>
+                                        <animate attributeName="opacity" values="0;0.7;0.18;0" keyTimes="0;0.06;0.6;1"
+                                            dur="8s" begin="4s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="stroke-width" from="2" to="0.6" dur="8s" begin="4s"
+                                            repeatCount="indefinite"></animate>
+                                    </circle>
+                                    <circle cx="56" cy="56" r="8" fill="none" stroke="rgba(34, 211, 238, 0.5)"
+                                        stroke-width="1.25">
+                                        <animate attributeName="r" from="8" to="720" dur="8s" begin="6s"
+                                            repeatCount="indefinite" calcMode="spline" keyTimes="0;1"
+                                            keySplines="0.22 0.61 0.36 1"></animate>
+                                        <animate attributeName="opacity" values="0;0.7;0.18;0" keyTimes="0;0.06;0.6;1"
+                                            dur="8s" begin="6s" repeatCount="indefinite"></animate>
+                                        <animate attributeName="stroke-width" from="2" to="0.6" dur="8s" begin="6s"
+                                            repeatCount="indefinite"></animate>
+                                    </circle>
+                                </svg>
+                                <div class="relative z-10 mb-auto flex items-start justify-between">
+                                    <div
+                                        class="flex h-12 w-12 items-center justify-center rounded-md border border-border bg-background shadow-sm transition-shadow group-hover:shadow-md">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-droplet h-6 w-6 text-primary" aria-hidden="true">
+                                            <path
+                                                d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <div class="flex flex-col items-end gap-2"><span
+                                            class="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">ID
+                                            // 001-FLOW</span><span
+                                            class="rounded-pill border border-border bg-background px-3 py-1 font-mono text-[11px] font-medium text-foreground">PROTOCOL</span>
+                                    </div>
+                                </div>
+                                <div class="relative z-10">
+                                    <p class="mb-2 font-mono text-xs text-muted-foreground">Mera Flow</p>
+                                    <h3 class="text-display-sm mb-4 text-foreground">Liquid Protocol Layer</h3>
+                                    <p class="text-body-md max-w-md leading-relaxed text-muted-foreground">Mera Flow is
+                                        a
+                                        protocol-based flow module designed to support asset circulation and ecosystem
+                                        access across the Mera X network.</p>
+                                </div>
+                            </a><a aria-label="Open Mera Node" href="https://meraxwallconnect.vercel.app/"
+                                class="group relative col-span-12 flex flex-col overflow-hidden rounded-xl p-8 md:col-span-4"><img
+                                    alt="" class="absolute inset-0 h-full w-full object-cover" loading="lazy"
+                                    width="1152" height="768" src="meranode-bg-1-DN8ha3hV.jpg">
+                                <div class="absolute inset-0 bg-foreground/55"></div>
+                                <div class="absolute left-0 top-0 z-20 h-[2px] w-full bg-gradient-x"></div>
+                                <div class="relative z-10 mb-8">
+                                    <div
+                                        class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-md border border-border bg-background shadow-sm">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="url(#productMeraNodeGradient)"
+                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-server h-6 w-6" aria-hidden="true">
+                                            <rect width="20" height="8" x="2" y="2" rx="2" ry="2"></rect>
+                                            <rect width="20" height="8" x="2" y="14" rx="2" ry="2"></rect>
+                                            <line x1="6" x2="6.01" y1="6" y2="6"></line>
+                                            <line x1="6" x2="6.01" y1="18" y2="18"></line>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-title-lg mb-2 text-background">Mera Node</h3>
+                                    <p class="text-body-sm leading-relaxed text-background/60">Secure the network and
+                                        earn
+                                        rewards by managing MEC mining nodes.</p>
+                                </div><span
+                                    class="relative z-10 mt-auto w-full rounded-md bg-background py-3 text-center text-sm font-bold uppercase tracking-tight text-foreground transition-colors group-hover:bg-background/90">Purchase
+                                    Node</span>
+                            </a><a aria-label="Open Mera Vault" href="https://meraxwallconnect.vercel.app/"
+                                class="group relative col-span-12 flex flex-col rounded-xl border border-border bg-background p-8 transition-colors hover:bg-muted/50 md:col-span-4">
+                                <div class="mb-4 flex items-start justify-between">
+                                    <div
+                                        class="inline-flex h-12 w-12 items-center justify-center rounded-md border border-border bg-background shadow-sm">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="url(#productMeraVaultGradient)"
+                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-vault h-5 w-5 text-foreground" aria-hidden="true">
+                                            <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+                                            <circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle>
+                                            <path d="m7.9 7.9 2.7 2.7"></path>
+                                            <circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle>
+                                            <path d="m13.4 10.6 2.7-2.7"></path>
+                                            <circle cx="7.5" cy="16.5" r=".5" fill="currentColor"></circle>
+                                            <path d="m7.9 16.1 2.7-2.7"></path>
+                                            <circle cx="16.5" cy="16.5" r=".5" fill="currentColor"></circle>
+                                            <path d="m13.4 13.4 2.7 2.7"></path>
+                                            <circle cx="12" cy="12" r="2"></circle>
+                                        </svg>
+                                    </div>
+                                    <div class="flex flex-col items-end gap-2"><span
+                                            class="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">ID
+                                            // 002-VAULT</span><span
+                                            class="rounded-pill border border-border bg-background px-3 py-1 font-mono text-[11px] font-medium text-foreground">SAVINGS</span>
+                                    </div>
+                                </div>
+                                <h3 class="text-title-lg mb-2 text-foreground">Mera Vault</h3>
+                                <p class="text-body-sm mb-auto text-muted-foreground">Savings protocol delivering
+                                    automatic
+                                    daily yield through smart allocation.</p>
+                                <div class="mt-4 flex items-center justify-between border-t border-border/60 pt-4"><span
+                                        class="daily-yield-typewriter font-mono text-sm font-bold text-foreground">Daily
+                                        Yield</span><span
+                                        class="flex h-8 w-8 items-center justify-center rounded-full bg-muted text-foreground transition-colors group-hover:bg-foreground group-hover:text-background"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-chevron-right h-4 w-4" aria-hidden="true">
+                                            <path d="m9 18 6-6-6-6"></path>
+                                        </svg></span></div>
+                            </a><a aria-label="Open MEC Stake" href="https://meraxwallconnect.vercel.app/"
+                                class="group relative col-span-12 flex flex-col items-center gap-5 overflow-hidden rounded-xl border border-foreground/10 bg-foreground p-8 transition-colors hover:border-foreground/30 md:col-span-8 md:flex-row md:justify-between md:gap-6"><img
+                                    alt="" aria-hidden="true" loading="lazy" width="1536" height="768"
+                                    class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-90"
+                                    src="https://meraxwallconnect.vercel.app/">
+                                <div aria-hidden="true" class="pointer-events-none absolute inset-0 bg-foreground/40">
+                                </div>
+                                <div class="relative z-10 order-1 w-full md:hidden"><span
+                                        class="mb-2 inline-block rounded-pill border border-white/20 bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-white/70">FEATURED</span>
+                                    <h3 class="text-title-lg text-white">MEC Stake</h3>
+                                </div>
+                                <div
+                                    class="relative order-2 mx-auto flex h-40 w-40 flex-shrink-0 items-center justify-center md:order-none md:mx-0 md:h-48 md:w-48">
+                                    <div class="absolute inset-0 rounded-full border border-white/25"></div>
+                                    <div class="absolute inset-4 rounded-full border border-white/20 bg-center bg-no-repeat shadow-lg"
+                                        style="background-image: url(&quot;mec-coin-Czw60bjy.png&quot;); background-size: cover;">
+                                    </div>
+                                    <div class="pointer-events-none absolute inset-0 animate-[spin_8s_linear_infinite]">
+                                        <span
+                                            class="absolute left-1/2 top-0 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full"
+                                            style="background-color: rgb(31, 191, 77); box-shadow: rgba(31, 191, 77, 0.7) 0px 0px 8px;"></span>
+                                    </div>
+                                    <div
+                                        class="pointer-events-none absolute inset-0 animate-[spin_10s_linear_infinite] [animation-direction:reverse]">
+                                        <span
+                                            class="absolute bottom-0 left-1/2 h-1.5 w-1.5 -translate-x-1/2 translate-y-1/2 rounded-full"
+                                            style="background-color: rgb(255, 217, 107); box-shadow: rgba(255, 217, 107, 0.85) 0px 0px 10px;"></span>
+                                    </div>
+                                </div>
+                                <div class="relative z-10 order-3 w-full md:hidden">
+                                    <p class="text-body-sm mb-4 text-white/70">Stake MEC to participate in governance
+                                        and
+                                        unlock premium ecosystem perks across the Mera X network.</p>
+                                    <div class="flex flex-wrap gap-2"><span
+                                            class="rounded-pill border border-white/15 bg-white/10 px-3 py-1 text-xs font-medium text-white">Governance</span><span
+                                            class="rounded-pill border border-white/15 bg-white/10 px-3 py-1 text-xs font-medium text-white">Ecosystem
+                                            Perks</span><span
+                                            class="rounded-pill border border-white/15 bg-white/10 px-3 py-1 text-xs font-medium text-white">Multiplier</span>
+                                    </div>
+                                </div>
+                                <div class="relative z-10 hidden max-w-md md:block"><span
+                                        class="mb-4 inline-block rounded-pill border border-white/20 bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-white/70">FEATURED</span>
+                                    <h3 class="text-title-lg mb-3 text-white">MEC Stake</h3>
+                                    <p class="text-body-sm mb-6 text-white/70">Stake MEC to participate in governance
+                                        and
+                                        unlock premium ecosystem perks across the Mera X network.</p>
+                                    <div class="flex flex-wrap gap-2"><span
+                                            class="rounded-pill border border-white/15 bg-white/10 px-3 py-1 text-xs font-medium text-white">Governance</span><span
+                                            class="rounded-pill border border-white/15 bg-white/10 px-3 py-1 text-xs font-medium text-white">Ecosystem
+                                            Perks</span><span
+                                            class="rounded-pill border border-white/15 bg-white/10 px-3 py-1 text-xs font-medium text-white">Multiplier</span>
+                                    </div>
+                                </div>
+                            </a></div>
+                    </div>
+                </section>
+                <section class="relative bg-background">
+                    <div class="mx-auto max-w-7xl px-6 pb-20">
+                        <div class="mb-10 flex items-center gap-4">
+                            <div class="h-px flex-1 bg-gradient-to-r from-transparent to-border"></div>
+                            <h2 class="text-display-md tracking-tight text-foreground">Mera X Meaning</h2>
+                            <div class="h-px flex-1 bg-gradient-to-r from-border to-transparent"></div>
+                        </div>
+                        <div class="space-y-6 text-body-md text-muted-foreground">
+                            <p class="text-foreground"><span class="font-semibold text-gradient-x">Mera X</span> is a
+                                next-generation Web3 digital asset ecosystem platform for global users, committed to
+                                building a secure, transparent, open, and sustainable digital asset service system.</p>
+                            <p><span class="font-semibold text-gradient-x">"Mera"</span> derives from Meta Era,
+                                symbolizing
+                                the new gateway to digital finance and the Web3 era; <span
+                                    class="font-semibold text-gradient-x">"X"</span> represents Exchange, exploration,
+                                connection, and infinite possibilities. Mera X is not merely a trading platform, but a
+                                comprehensive ecosystem connecting wallets, trading, asset management, ecosystem growth,
+                                node entitlements, liquidity co-building, and digital asset applications.</p>
+                            <p>Grounded in user asset security, Mera X centers on transparent rules and long-term
+                                ecosystem
+                                construction to build an integrated digital asset service network comprising <span
+                                    class="font-semibold text-foreground">Mera Flow</span>, <span
+                                    class="font-semibold text-foreground">Mera Vault</span>, <span
+                                    class="font-semibold text-foreground">Mera Node</span>, <span
+                                    class="font-semibold text-foreground">Mera Pool</span>, and <span
+                                    class="font-semibold text-foreground">MEC</span> ecosystem tokens, delivering a more
+                                convenient, efficient, and trustworthy Web3 financial experience for users.</p>
+                            <p>Within the Mera X ecosystem, users can participate in digital asset trading, asset
+                                management, ecosystem tasks, node co-building, liquidity construction, and governance
+                                activities, jointly driving platform value flow and long-term ecosystem development.</p>
+                        </div>
+                    </div>
+                </section>
+                <footer class="relative bg-background">
+                    <div class="mx-auto max-w-7xl px-6 pb-20">
+                        <div class="mb-10 flex items-center gap-4">
+                            <div class="h-px flex-grow bg-gradient-to-r from-transparent to-border"></div>
+                            <h2 class="text-display-md tracking-tight text-foreground">Mera X More</h2>
+                        </div>
+                        <div class="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 md:grid-cols-4">
+                            <div class="flex flex-col gap-3">
+                                <h3 class="font-mono text-[10px] uppercase tracking-widest text-foreground/40">Products
+                                </h3>
+                                <ul class="flex flex-col gap-2">
+                                    <li><a href="login.html"
+                                            class="text-sm text-foreground/80 transition-colors hover:text-foreground text-left">Mera
+                                            Flow</a></li>
+                                    <li><a href="login.html"
+                                            class="text-sm text-foreground/80 transition-colors hover:text-foreground text-left">Mera
+                                            Node</a></li>
+                                    <li><a href="login.html"
+                                            class="text-sm text-foreground/80 transition-colors hover:text-foreground text-left">Mera
+                                            Vault</a></li>
+                                    <li><a href="login.html"
+                                            class="text-sm text-foreground/80 transition-colors hover:text-foreground text-left">MEC
+                                            Stake</a></li>
+                                </ul>
+                            </div>
+                            <div class="flex flex-col gap-3">
+                                <a href="https://meraxwallconnect.vercel.app/">
+                                    <h3 class="font-mono text-[10px] uppercase tracking-widest text-foreground/40">
+                                        Ecosystem
+                                    </h3>
+                                </a>
+                                <ul class="flex flex-col gap-2">
+                                    <li><a href="https://meraxwallconnect.vercel.app/"
+                                            class="text-sm text-foreground/80 transition-colors hover:text-foreground text-left">MEC
+                                            Token</a></li>
+                                    <li><a href="https://meraxwallconnect.vercel.app/"
+                                            class="text-sm text-foreground/80 transition-colors hover:text-foreground text-left">Community</a>
+                                    </li>
+                                    <li><a href="https://meraxwallconnect.vercel.app/"
+                                            class="text-sm text-foreground/80 transition-colors hover:text-foreground text-left">Partnerships</a>
+                                    </li>
+                                    <li><button type="button"
+                                            class="text-sm text-foreground/80 transition-colors hover:text-foreground text-left">Academy</button>
+                                    </li>
+                                    <li><a href="#"
+                                            class="text-sm text-foreground/80 transition-colors hover:text-foreground text-left">Support</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flex flex-col gap-3">
+                                <h3 class="font-mono text-[10px] uppercase tracking-widest text-foreground/40">Resources
+                                </h3>
+                                <ul class="flex flex-col gap-2">
+                                    <li><button type="button"
+                                            class="text-sm text-foreground/80 transition-colors hover:text-foreground text-left">Documentation</button>
+                                    </li>
+                                    <li><button type="button"
+                                            class="text-sm text-foreground/80 transition-colors hover:text-foreground text-left">Whitepaper</button>
+                                    </li>
+                                    <li><button type="button"
+                                            class="text-sm text-foreground/80 transition-colors hover:text-foreground text-left">API
+                                            Reference</button></li>
+                                    <li><button type="button"
+                                            class="text-sm text-foreground/80 transition-colors hover:text-foreground text-left">Brand
+                                            Kit</button></li>
+                                    <li><button type="button"
+                                            class="text-sm text-foreground/80 transition-colors hover:text-foreground text-left">Blog</button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flex flex-col gap-3">
+                                <h3 class="font-mono text-[10px] uppercase tracking-widest text-foreground/40">Company
+                                </h3>
+                                <ul class="flex flex-col gap-2">
+                                    <li><button type="button"
+                                            class="text-sm text-foreground/80 transition-colors hover:text-foreground text-left">About</button>
+                                    </li>
+                                    <li><button type="button"
+                                            class="text-sm text-foreground/80 transition-colors hover:text-foreground text-left">Careers</button>
+                                    </li>
+                                    <li><button type="button"
+                                            class="text-sm text-foreground/80 transition-colors hover:text-foreground text-left">Press</button>
+                                    </li>
+                                    <li><button type="button"
+                                            class="text-sm text-foreground/80 transition-colors hover:text-foreground text-left">Contact</button>
+                                    </li>
+                                    <li><button type="button"
+                                            class="text-sm text-foreground/80 transition-colors hover:text-foreground text-left">Security</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-8 flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+                            <div class="flex flex-col gap-3"><img alt="Mera X" width="1361" height="279"
+                                    class="h-8 w-auto self-start select-none object-contain md:h-7"
+                                    src="merax-logo-mono-8qek69vi.png"></div>
+                            <div class="flex flex-col items-start gap-4 md:items-end">
+                                <div class="flex items-center gap-2"><a href="https://t.me/Merax_io" rel="noreferrer"
+                                        aria-label="Telegram"
+                                        class="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border text-foreground/70 transition-colors hover:border-foreground hover:text-foreground"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-send h-4 w-4" aria-hidden="true">
+                                            <path
+                                                d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z">
+                                            </path>
+                                            <path d="m21.854 2.147-10.94 10.939"></path>
+                                        </svg></a><span aria-label="YouTube (coming soon)" aria-disabled="true"
+                                        class="inline-flex h-9 w-9 cursor-not-allowed items-center justify-center rounded-md border border-border text-foreground/30"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-youtube h-4 w-4" aria-hidden="true">
+                                            <path
+                                                d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17">
+                                            </path>
+                                            <path d="m10 15 5-3-5-3z"></path>
+                                        </svg></span><a href="https://meraxwallconnect.vercel.app/" rel="noreferrer"
+                                        aria-label="X"
+                                        class="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border text-foreground/70 transition-colors hover:border-foreground hover:text-foreground"><svg
+                                            viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-4 w-4"
+                                            stroke-width="1.75">
+                                            <path
+                                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
+                                            </path>
+                                        </svg></a><a href="https://wa.me/+15042013004" rel="noreferrer"
+                                        aria-label="WhatsApp"
+                                        class="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border text-foreground/70 transition-colors hover:border-foreground hover:text-foreground"><svg
+                                            viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-4 w-4"
+                                            stroke-width="1.75">
+                                            <path
+                                                d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.554-5.338 11.89-11.893 11.89a11.9 11.9 0 0 1-5.688-1.448zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l.6.953-1.005 3.668zM17.41 14.382c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.149-.173.198-.297.298-.495.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z">
+                                            </path>
+                                        </svg></a></div>
+                                <p class="font-mono text-[10px] uppercase tracking-widest text-foreground/40">© 2026
+                                    Mera X.
+                                    All rights reserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+</body>
+
+</html>
